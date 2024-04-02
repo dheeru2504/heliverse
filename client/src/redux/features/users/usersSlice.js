@@ -5,7 +5,7 @@ import axios from 'axios';
 export const fetchUsers = createAsyncThunk(
     'users/fetchUsers',
     async ({ currentPage, gender, available, selectedDomains }) => {
-        const response = await axios.get(`http://localhost:5050/api/user/get-users/${currentPage}`, {
+        const response = await axios.get(`https://heliverse-4zbw.onrender.com/api/user/get-users/${currentPage}`, {
             params: { gender, available, domain: selectedDomains },
         });
         return response.data;
@@ -16,7 +16,7 @@ export const searchUserByName = createAsyncThunk(
     'users/searchUserByName',
     async (name, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`http://localhost:5050/api/user/search`, {
+            const response = await axios.get(`https://heliverse-4zbw.onrender.com/api/user/search`, {
                 params: { name },
             });
             console.log(response.data)
@@ -31,7 +31,7 @@ export const deleteUser = createAsyncThunk(
     'users/deleteUser',
     async (userId, { rejectWithValue }) => {
         try {
-            const response = await axios.delete(`http://localhost:5050/api/user/delete-users/${userId}`);
+            const response = await axios.delete(`https://heliverse-4zbw.onrender.com/api/user/delete-users/${userId}`);
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response ? error.response.data : error);

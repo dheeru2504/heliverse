@@ -84,7 +84,7 @@ function CreateTeam() {
     event.preventDefault();
 
     // console.log("going to backend");
-    fetch(`http://localhost:5050/api/user/create-team`, {
+    fetch(`https://heliverse-4zbw.onrender.com/api/user/create-team`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: teamName, memberIds: selectedUsers }),

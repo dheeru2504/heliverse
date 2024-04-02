@@ -11,7 +11,7 @@ function TeamsPage() {
     const fetchTeams = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5050/api/user/get-teams"
+          "https://heliverse-4zbw.onrender.com/api/user/get-teams"
         );
         setTeams(response.data);
       } catch (error) {
@@ -20,7 +20,7 @@ function TeamsPage() {
     };
 
     fetchTeams();
-  }, []);
+  }, [teams]);
 
   return (
     <>
@@ -63,27 +63,10 @@ function TeamsPage() {
                     </Card.Body>
                   </Card>
                 </div>
-                // <li key={member._id}>
-                //   {member.first_name} {member.last_name}
-                // </li>
               ))}
             </>
           )}
         </div>
-
-        {/* {teams.map((team) => (
-        <div key={team._id}>
-          <h2>{team.name}</h2>
-          <h3>Members</h3>
-          <ul>
-            {team.members.map((member) => (
-              <li key={member._id}>
-                {member.first_name} {member.last_name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))} */}
       </div>
     </>
   );
